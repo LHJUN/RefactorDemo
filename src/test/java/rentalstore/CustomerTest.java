@@ -30,7 +30,6 @@ public class CustomerTest {
 
         // when
         String result = customer.statement();
-        System.out.println(result);
         // then
         Assert.assertEquals(expectedResult, result);
 
@@ -58,7 +57,6 @@ public class CustomerTest {
 
         // when
         String result = customer.statement();
-        System.out.println(result);
         // then
         Assert.assertEquals(expectedResult, result);
     }
