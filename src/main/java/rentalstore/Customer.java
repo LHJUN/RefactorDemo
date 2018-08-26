@@ -23,16 +23,16 @@ public class Customer {
         double totalAmount = 0;
         int frequentRenterPoints = 0;
         Enumeration rentals = this.rentals.elements();
-        String result = "Rental Record for " + getName() + "\n";
+        String result = "<H1>Rental Record for <EM>" + getName() + "</EM></H1>\n";
         while (rentals.hasMoreElements()) {
             Rental each = (Rental) rentals.nextElement();
             //show figures for this rental
-            result += "\t" + each.getMovie().getTitle() + "\t" + String.valueOf(each.getCharge()) + "\n";
+            result += each.getMovie().getTitle() + ": " + String.valueOf(each.getCharge()) + "<BR>\n";
         }
 
         //add footer lines
-        result += "Amount owed is" + String.valueOf(getTotalCharge()) + "\n";
-        result += "You earned" + String.valueOf(getTotalFrequentRenterPoints()) + " frequent renter points";
+        result += "<P>You owe<EM>" + String.valueOf(getTotalCharge()) + "</EM></P>\n";
+        result += "On this rental you earned <EM>" + String.valueOf(getTotalFrequentRenterPoints()) + "</EM> frequent renter points<P>";
         return result;
     }
 

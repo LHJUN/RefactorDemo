@@ -11,12 +11,12 @@ public class CustomerTest {
     @Test
     public void should_return_statement_when_rental_given_customer_rental_movies_do_not_exceed_timelimit() {
         // given
-        String expectedResult = "Rental Record for customer\n" +
-                "\tCHILDRENS_movie\t1.5\n" +
-                "\tREGULAR_movie\t3.5\n" +
-                "\tNEW_RELEASE_movie\t6.0\n" +
-                "Amount owed is11.0\n" +
-                "You earned4 frequent renter points";
+        String expectedResult = "<H1>Rental Record for <EM>customer</EM></H1>\n" +
+                "CHILDRENS_movie: 1.5<BR>\n" +
+                "REGULAR_movie: 3.5<BR>\n" +
+                "NEW_RELEASE_movie: 6.0<BR>\n" +
+                "<P>You owe<EM>11.0</EM></P>\n" +
+                "On this rental you earned <EM>4</EM> frequent renter points<P>";
         Customer customer = new Customer("customer");
         Movie childrensMovie = new Movie("CHILDRENS_movie", 2);
         Movie regularMovie = new Movie("REGULAR_movie", 0);
@@ -30,7 +30,7 @@ public class CustomerTest {
 
         // when
         String result = customer.statement();
-
+        System.out.println(result);
         // then
         Assert.assertEquals(expectedResult, result);
 
@@ -39,12 +39,12 @@ public class CustomerTest {
     @Test
     public void should_return_statement_when_rental_given_customer_rental_movies_exceed_timelimit() {
         // given
-        String expectedResult = "Rental Record for customer\n" +
-                "\tCHILDRENS_movie\t1.5\n" +
-                "\tREGULAR_movie\t5.0\n" +
-                "\tNEW_RELEASE_movie\t9.0\n" +
-                "Amount owed is15.5\n" +
-                "You earned4 frequent renter points";
+        String expectedResult = "<H1>Rental Record for <EM>customer</EM></H1>\n" +
+                "CHILDRENS_movie: 1.5<BR>\n" +
+                "REGULAR_movie: 5.0<BR>\n" +
+                "NEW_RELEASE_movie: 9.0<BR>\n" +
+                "<P>You owe<EM>15.5</EM></P>\n" +
+                "On this rental you earned <EM>4</EM> frequent renter points<P>";
         Customer customer = new Customer("customer");
         Movie childrensMovie = new Movie("CHILDRENS_movie", 2);
         Movie regularMovie = new Movie("REGULAR_movie", 0);
@@ -58,7 +58,7 @@ public class CustomerTest {
 
         // when
         String result = customer.statement();
-
+        System.out.println(result);
         // then
         Assert.assertEquals(expectedResult, result);
     }
